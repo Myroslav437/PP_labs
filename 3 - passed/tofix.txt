@@ -1,0 +1,4 @@
+1) Relative path in _Info_(), Main class
+2) Create class commnad (identical code in main and lobby)
+3) Exeption in main when enter empty string
+4) info - droid relative name to absolute

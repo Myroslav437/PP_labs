@@ -1,0 +1,53 @@
+                                    Droid battle game
+
+Main menu:
+    In the main menu you can find out information about the game.
+    > Use "help" to find see the game rules
+    > Use "info [droid_type] to see the characteristics of a particular droid"
+    > Use "lobby" to enter the game lobby
+    > To exit the game use "exit" command.
+
+Staring the game:
+    Once you entered the lobby you should input the names of yours and opponent's team.
+    After that, amount and models of droids for both teams should be chosen.
+    > For adding a new droid "add [team] [type] [name]" command is used.
+    > To delete a droid use "remove [team] [name]" command. If there are several droids with the same "[name]" field,
+      the last created droid with this name will be removed.
+    > The list of droids can be displayed using "list [team]" command.
+    > Since yours and opponent's teams are formed, you can start the battle.
+      To do this use "start" command and confirm this action.
+
+Gameplay:
+    > The team, which will start battle, is chosen randomly.
+    > Each round all your alive units make their move.
+    > A droid is alive while it's health is higher than 0. Otherwise, this droid is considered to be dead and is removed
+      from the match.
+    > The battle continues while two teams have at least one alive droid. Hence, the winner team is one who destroyed
+      all opponent's units.
+
+
+Droid types:
+    1) Tank:
+        > Health: 120
+        > Damage: 17
+        > Ability: damage absorption
+        Tank has extended health, but, at the same time it's damage is lower than Ranger's.
+        Special skill of this droid is the ability to dodge the damage with the probability of 20%.
+
+    2) Ranger:
+        > Health: 70
+        > Damage: 30
+        > Ability: critical damage
+        This droid has moderate health and damage characteristics, what makes the Ranger droid the main
+        combat unit.
+        Special skill of the Ranger is the opportunity to make the critical damage to the opponent's droid
+        with the probability of 20%. Critical damage increase caused  by 25 percent.
+
+    3) Support
+        > Health: 40
+        > Damage: 10
+        > Ability: repair
+        This droid has low health and damage characteristics. Support droid are usually used to restore the
+        health of more powerful units (f.e. Tank or Ranger).
+        Special skill of Support droid is the ability to heal teammates. If there are no teammates left or
+        all of them have full health this droid starts to attack opponent droids
