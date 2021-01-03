@@ -1,9 +1,13 @@
 package UI;
 
-import java.util.ArrayList;
-
-import Common.Utilities.CommandUtilities;
 import Common.Commands.ConsoleCommand;
+import Common.Utilities.CommandUtilities;
+import DataBase.DataBase;
+import Main.Main;
+import Selector.Selector;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class TUI {
     final public static String[] MainCommandsM = {
@@ -11,14 +15,22 @@ public class TUI {
         "info",
         "get",
         "discard",
+        "read",
         "exit",
     };
 
-    enum arg {
+    public static Selector selector;
+    public static DataBase.Statuses DBStatus;
+
+    private enum arg {
         command,
         arg1,   arg2,   arg3,
         arg4,   arg5,   arg6,
         arg7,   arg8,   arg9
+    }
+    public TUI() {
+        selector = new Selector();
+        DBStatus = DataBase.Statuses.disconnected;
     }
 
     public void execute() throws Exception {
@@ -43,14 +55,18 @@ public class TUI {
             }
             catch (ClassNotFoundException exception) {
                 System.out.println("Invalid command\n");
+                Main.logger.log("Invalid command:" + exception.getMessage());
+                //------------------------------------------
+                //Main.logger.sendMessage("Invalid command:" + exception.getMessage());
             }
             catch (IllegalArgumentException exception) {
                 System.out.println("Invalid argument\n");
+                Main.logger.log("Invalid argument: " + exception.getMessage());
             }
-            /*catch (Exception exception) {
-                System.out.println("Error occurred");
-                // Log everything;
-            }*/
+            catch (IOException exception) {
+                System.out.println("File Error: " + exception.getMessage() + "\n");
+                Main.logger.log("File Error: " + exception.getMessage());
+            }
         }
     }
 }

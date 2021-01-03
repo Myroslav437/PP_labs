@@ -1,0 +1,35 @@
+Bahamas Cruise {
+	Food: Econom-500, Econom_plus-700, Premium-1000
+	Places: Atlantis_Paradise_Island-100, Nassau-150, Harbour_Island-50, Andros_Island-60
+	Term: 15
+	BasicPrice: 1000
+	PricePerDay: 67
+}
+
+Shatsk Recreation{
+	Food: Dietary-10, Vegetarian-5, Standart-20
+	Term: 14
+	BasicPrice: 300
+	PricePerDay: 21
+}
+
+Chernobyl Excursion {
+	Transport: Regular_bus-0, Comfort_bus-20, Private_car-50
+	Term: 2
+	BasicPrice: 200
+	PricePerDay: 100
+}
+
+NewYork Shopping {
+	Food: Standart-0, Premium-50
+	Transport: Bus-10, Private_car-30
+	Term: 1
+	BasicPrice: 50
+	PricePerDay: 50
+}
+
+Medyk Treatment {
+	Term: 25
+	BasicPrice: 500
+	PricePerDay: 20
+}

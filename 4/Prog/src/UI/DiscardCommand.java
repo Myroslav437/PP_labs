@@ -1,5 +1,7 @@
 package UI;
 import Common.Commands.ConsoleCommand;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DiscardCommand extends ConsoleCommand{
@@ -8,8 +10,9 @@ public class DiscardCommand extends ConsoleCommand{
     }
 
     @Override
-    public String Run() {
-        return null;
+    public String Run() throws IOException  {
+        TUI.selector.clearFilter();
+        return "";
     }
 
     @Override

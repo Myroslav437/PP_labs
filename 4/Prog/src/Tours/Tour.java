@@ -1,66 +1,98 @@
 package Tours;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public abstract class Tour {
-    private String name;
-    private Integer price;
-    private Integer period;
+    private String  Name;
+    private Integer PricePerDay;
+    private Integer Term;
+    private Integer BasicPrice; /////////////////////////
 
-    Tour(String name, Integer price, Integer period) {
-        this.name = name;
-        this.price = price;
-        this.period = period;
+    /*--------------------------------------*/
+    /*             Constructors:            */
+    /*--------------------------------------*/
+
+    Tour(String name, Integer basicPrice, Integer pricePerDay, Integer term) {
+        Name = name;
+        BasicPrice = basicPrice;
+        PricePerDay = pricePerDay;
+        Term = term;
     }
 
-    Tour(String name, Integer price) {
-        this(name, price, 0);
+    Tour(String name, Integer basicPrice) {
+        this(name, basicPrice, 0, 0);
     }
 
     Tour(String name) {
-        this(name, 0, 0);
+        this(name, 0, 0, 0);
         return;
     }
 
-    public abstract boolean customTerm();
-    public abstract boolean customTransport();
-    public abstract boolean customEating();
+    Tour() {
+        this("", 0, 0, 0);
+        return;
+    }
 
+    // Basic functions:
     public String getName() {
-        return name;
+        return Name;
     }
+    public Integer getTerm() { return Term;};
+    public void setTerm(Integer term) { Term = term; };
+    public void setPricePerDay(Integer pricePerDay) { PricePerDay = pricePerDay;};
+    public Integer getPricePerDay() {return PricePerDay; };
+    public Integer getBasicPrice() { return BasicPrice; }
+    public void setBasicPrice(Integer price) {BasicPrice = price;}
 
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public Integer getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(Integer period) {
-        this.period = period;
-    }
-
+    //  Hashcode and Equals
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tour tour = (Tour) o;
-        return name.equals(tour.name) &&
-                price.equals(tour.price);
+        return Name.equals(tour.Name) &&
+                PricePerDay.equals(tour.PricePerDay) &&
+                Term.equals(tour.Term) &&
+                BasicPrice.equals(tour.BasicPrice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, price);
+        return Objects.hash(Name, PricePerDay, Term, BasicPrice);
+    }
+
+    // Food:
+    public abstract boolean customFood();
+    public void addFood(String name, Integer price)         {}
+    public HashMap<String, Integer> getFood()                   {return new HashMap<String, Integer>();}
+    public void setFood(HashMap<String, Integer> food)          {}
+
+    // Places:
+    public abstract boolean customPlaces();
+    public void addPlace(String place, Integer price)       {}
+    public HashMap<String, Integer> getPlaces()                 {return new HashMap<String, Integer>();}
+    public void setPlaces(HashMap<String, Integer> places)      {}
+
+    // Transport
+    public abstract boolean customTransport();
+    public void addTransport(String name, Integer price)    {};
+    public HashMap<String, Integer> getTransport()              {return new HashMap<String, Integer>();};
+    public void setTransport(HashMap<String, Integer> transport){};
+
+    // Terms:
+    public abstract boolean customTerm();
+
+    // ToString:
+
+    @Override
+    public String toString() {
+        String type = this.getClass().getName();
+        Integer idx = type.indexOf('.');
+        type = type.substring(idx + 1, type.length());
+        return   type + " " + Name + ":\n" +
+                "\tBasicPrice:\t"  + BasicPrice.toString() + "\n" +
+                "\tPricePerDay:\t" + PricePerDay.toString() + "\n" +
+                "\tTerm:\t" + Term.toString() + "\n";
     }
 }
