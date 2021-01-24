@@ -30,3 +30,7 @@
 2021/01/03 23:15:56:	Test log
 2021/01/03 23:21:03:	Test log
 2021/01/03 23:24:58:	Test log
+2021/01/04 17:26:13:	File Error: D:\Labs\Applycation (The system cannot find the file specified)
+2021/01/04 17:26:34:	Invalid command:UI.D:\Labs\ApplycationCommand
+2021/01/04 17:26:41:	File Error: D:\Labs\Applycation (The system cannot find the file specified)
+2021/01/04 17:30:19:	Test log
